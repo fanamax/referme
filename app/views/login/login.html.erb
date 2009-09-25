@@ -1,0 +1,24 @@
+<% form_tag :controller => :login, :action => :processlogin do %>
+<table>
+<tr>
+<td>
+<label>user name</label>
+<%= text_field_tag :username, params[:username], :id => 'username_field', :size => 30 %>
+</td>
+</tr>
+<tr>
+<td>
+<label>password</label>
+<%= password_field_tag :password, params[:password], :id => 'password_field', :size => 30 %>
+</td>
+</tr>
+<tr>
+<td>
+<%= submit_tag "login" %>
+</td>
+</tr>
+</table>
+<% end %>
+<% if flash[:error] %>
+<div><%= flash[:error] %></div>
+<% end %>

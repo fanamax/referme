@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  publishtime: 2009-09-15 21:11:12
+  description: MyText
+  askprice: 1
+  user: 
+  business: 
+
+two:
+  publishtime: 2009-09-15 21:11:12
+  description: MyText
+  askprice: 1
+  user: 
+  business: 

@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<style type="text/css">
+		.center
+		{
+			margin:auto;
+			width:1000
+		}
+		</style>
+		<%= greybox_includes %>
+		 <script type="text/javascript">
+		function refresh() {
+			javascript:location.reload(true)
+		}
+		</script>
+	</head>
+	<body>
+		<table border="1" class="center">
+		<tr>
+			<td>
+				<% form_tag '/businesses/search' do %>
+				<label>Business Name (<span>e.g. The Onyx Apartment</span>)</label>
+				<%= text_field_tag :businessname, params[:businessname], :id => 'businessname_field' %>
+				<label>Location (<span>e.g. Redmond, WA</span>)</label>
+				<%= text_field_tag :location, params[:city], :id => 'city_field' %>
+				<%= submit_tag "Search" %>
+				<%= loginlabel %>
+				<%= link_to "home", :controller => "home", :action => "index" %>				
+				<% end %>
+				for new user,<%= link_to "register", {:controller => :users, :action => :new}, :rel => 'gb_page_center[380,300]' %> </br>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div id = "content">
+				<%= yield %>
+			</div>
+			</td>
+		</tr>
+		</table>
+	</body>
+</html>

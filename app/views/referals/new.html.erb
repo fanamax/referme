@@ -1,0 +1,17 @@
+<h1>New referal</h1>
+
+<% form_for(@referal) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :offerprice %><br />
+    <%= f.text_field :offerprice %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

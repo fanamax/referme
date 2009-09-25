@@ -1,0 +1,16 @@
+<% form_for :referal, :url => { :controller => "businesses", :action => "createreferal", :id => @businessid} do |r|%>
+  <%= r.error_messages %>
+  <p>
+    <%= r.label :offerprice %> <br />
+    <%= r.text_field :offerprice %>
+  </p>
+  
+  <p>
+    <%= r.label :description %> <br />
+    <%= r.text_area :description %>
+  </p>
+  
+  <p>
+    <%= r.submit "Create" %>
+  </p>
+<% end %>

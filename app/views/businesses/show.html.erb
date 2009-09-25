@@ -1,0 +1,36 @@
+<table>
+  <tr>
+  <td>
+    <%= @business.name %> <br/>
+    <%= @business.address %> <br/>
+    <%= @business.description %> <br/>
+    <hr/>
+  </td>
+  </tr>
+  <tr>
+  <td>
+    <table>
+    <tr>
+    <td valign="top">
+      <table>
+      <tr>
+      <td>
+        <%= "#{@business.referals.count} Referals" %>
+      </td>
+      <td>
+        <%= link_to "new referal", {:controller => :referals, :action => :new, :id => @business.id}, :rel => 'gb_page_center[640,480]' %></td>
+      </td>
+      </tr>
+    <td>
+      <% @business.referals.each do |referal| %> </br>
+      <%= "offer: $#{referal.offerprice}"%> </br>
+      <%= referal.description %> </br>
+      <%= referal.user.displayname %> </br>
+      <%= link_to "contact", {:controller => :businesses, :action => :referalform, :id => referal.id}, :rel => 'gb_page_center[640,480]' %> </br>
+      <% end %>
+    </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+</table>

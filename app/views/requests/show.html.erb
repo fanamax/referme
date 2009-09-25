@@ -1,0 +1,18 @@
+<p>
+  <b>Askprice:</b>
+  <%=h @request.askprice %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @request.email %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @request.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

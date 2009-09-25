@@ -1,0 +1,18 @@
+<%= error_messages_for :request %>
+<% form_for :request, :url => { :controller => "businesses", :action => "createrequest", :id => @businessid} do |r| %>
+  <%= r.error_messages %>
+  <%= error_messages_for :request %>
+  <p>
+    <%= r.label :askprice %> <br />
+    <%= r.text_field :askprice %>
+  </p>
+  
+  <p>
+    <%= r.label :description %> <br />
+    <%= r.text_area :description %>
+  </p>
+  
+  <p>
+    <%= r.submit "Create" %>
+  </p>
+<% end %>

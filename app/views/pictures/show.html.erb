@@ -1,0 +1,18 @@
+<p>
+  <b>Filename:</b>
+  <%=h @picture.filename %>
+</p>
+
+<p>
+  <b>Filetype:</b>
+  <%=h @picture.filetype %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @picture.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>
