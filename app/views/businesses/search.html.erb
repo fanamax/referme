@@ -4,6 +4,7 @@
 <td>
 <%= link_to "#{business.name}", :controller => "businesses", :action => "show", :id => business.id %> <br/>
 <%= business.address %><br/>
+<%= link_to "#{business.url}" %><br/>
 <%= business.description %> <br/>
 <hr/>
 </td>
