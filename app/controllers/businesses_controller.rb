@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
   # Params: businessname --- name of business
   #         city --- name of city
   def search
-	@businesses = Business.search(params[:businessname], params[:city])
+    @businesses = Business.search(params[:businessname], params[:city])
   end
 
   # GET /businesses/1
