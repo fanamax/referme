@@ -1,22 +1,33 @@
 class LoginController < ApplicationController
-  def login
-    @user = User.new
-    render :controller => "login/login", :layout => false
-  end
-  
+
   def logout
     reset_session
-    redirect_to(:back)
+    redirect_to :controller => 'login', :action => 'login'
   end
   
-  def processlogin
+  def process_login
     if (userid = User.authenticate(params[:username], params[:password])) != -1
-      session[:userid] = userid # Remember the user's id during this session
-      @message = "login successful"
-      render :partial => 'layouts/refreshparent'
+      user = User.find(userid)
+      if user.role == "Admin"
+        session[:id] = userid
+        user = User.find(userid)
+        redirect_to :action => "admin"
+      else
+        flash[:error] = 'Invalid login.'
+        redirect_to :controller => "login", :action => "login"
+      end
     else
       flash[:error] = 'Invalid login.'
-      redirect_to :controller => "login", :action => "login"
+      redirect_to :action => "login"      
     end
   end
+    
+  def login
+    render :layout => false
+  end
+  
+  def admin
+    render :layout => false
+  end
+  
 end

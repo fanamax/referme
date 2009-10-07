@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_login
   # GET /users
   # GET /users.xml
   def index
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { render :partial => 'layouts/closepopup' }
+        format.html { render :action  => "index"}
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -81,4 +82,10 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def profile
+    @user = User.find(params[:id])
+    @businesses = Business.all
+  end
+  
 end

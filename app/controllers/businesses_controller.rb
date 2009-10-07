@@ -1,4 +1,5 @@
 class BusinessesController < ApplicationController
+  before_filter :require_login
   # GET /businesses
   # GET /businesses.xml
   def index
@@ -8,13 +9,6 @@ class BusinessesController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @businesses }
     end
-  end
-  
-  # POST /businesses/search
-  # Params: businessname --- name of business
-  #         city --- name of city
-  def search
-	@businesses = Business.search(params[:businessname], params[:city])
   end
 
   # GET /businesses/1
@@ -54,10 +48,10 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-        format.html { render :partial => 'layouts/refreshparent' }
+        format.html { render :action => "index" }
         format.xml  { render :xml => @business, :status => :created, :location => @business }
       else
-        format.html { render :action => "new", :layout => false }
+        format.html { render :action => "new" }
         format.xml  { render :xml => @business.errors, :status => :unprocessable_entity }
       end
     end

@@ -15,7 +15,15 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
+  config.gem "calendar_date_select"
+  config.gem 'mislav-will_paginate',
+             :version => '~> 2.3.2',
+             :lib => 'will_paginate',
+             :source => 'http://gems.github.com'
+  #config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
+  #ENV['RECAPTCHA_PUBLIC_KEY']  = '6LfnrAgAAAAAAJS1JHpTyejlCbwQchJ9Mvil3WQT'
+  #ENV['RECAPTCHA_PRIVATE_KEY'] = '6LfnrAgAAAAAAHA-lg7NgYo-p7zKq187FK-6kCmk'
+  #config.gem 'mislav-will_paginate', :source => 'http://gems.github.com'
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
@@ -55,7 +63,7 @@ ActionMailer::Base.smtp_settings = {
   :port            => 587,
   :tls             => true,
   :authentication  => :plain,
-  :user_name       => "yanji84@gmail.com",
-  :password        => "aaaa",
+  :user_name       => "refermewebmaster@gmail.com",
+  :password        => "1qw23er4",
   :enable_starttls_auto => true
 }

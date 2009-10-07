@@ -1,34 +1,32 @@
 <html>
 	<head>
-		<style type="text/css">
-		.center
-		{
-			margin:auto;
-			width:1000
-		}
-		</style>
-		<%= greybox_includes %>
-		 <script type="text/javascript">
-		function refresh() {
-			javascript:location.reload(true)
-		}
-		</script>
+	        <%= javascript_include_tag 'prototype' %>
+	        <%= javascript_include_tag 'referme' %>
+		<%= stylesheet_link_tag 'referme' %>
 	</head>
 	<body>
-		<table border="1" class="center">
+		<table class="main_table">
+		<tr>
+			<td class="logo">
+				<%= link_to image_tag("logo.jpg", :border=>0), :action => 'index' %>
+				<br/>
+				<br/>
+			</td>
+		</tr>
 		<tr>
 			<td>
-				<% form_tag '/businesses/search' do %>
-				<label>Business Name (<span>e.g. The Onyx Apartment</span>)</label>
-				<%= text_field_tag :businessname, params[:businessname], :id => 'businessname_field' %>
-				<label>Location (<span>e.g. Redmond, WA</span>)</label>
-				<%= text_field_tag :location, params[:city], :id => 'city_field' %>
+				<div id="searhpanel">
+				<% form_tag '/home/search' do %>
+				<span class="search_text">Refer me at <span class="search_example">(e.g. Bank of America)</span></span>
+				<%= text_field_tag :businessname,
+						   params[:businessname],
+						   :id => 'businessname_field',
+						   :onfocus => "search_box_onfocus()",
+						   :onblur => 'search_box_losefocus()' %>
 				<%= submit_tag "Search" %>
-				<%= loginlabel %>
-				<%= link_to "home", :controller => "home", :action => "index" %>				
+				<hr/>
+				</div>
 				<% end %>
-				for new user,<%= link_to "register", {:controller => :users, :action => :new}, :rel => 'gb_page_center[380,300]' %> </br>
-
 			</td>
 		</tr>
 		<tr>

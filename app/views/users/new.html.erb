@@ -16,6 +16,10 @@
     <%= f.password_field :password %>
   </p>
   <p>
+    <%= f.label :role %><br />
+    <%= f.select(:role, %w{Admin Referer}) %>
+  </p>
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>

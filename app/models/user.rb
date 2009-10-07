@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	has_many :contactrecord
+	has_many :referals
+	has_many :businesses, :through => :referals
 	validates_uniqueness_of :displayname
 	validates_uniqueness_of :email
 	validates_length_of :password, :within => 6..40

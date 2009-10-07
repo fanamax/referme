@@ -9,35 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090924041442) do
+ActiveRecord::Schema.define(:version => 20091005190354) do
 
 # Could not dump table "businesses" because of following StandardError
 #   Unknown type 'reference' for column 'picture'
 
-  create_table "pictures", :force => true do |t|
-    t.string   "filename"
-    t.string   "filetype"
-    t.binary   "content"
+  create_table "contact_records", :force => true do |t|
+    t.integer  "business_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "referals", :force => true do |t|
-    t.datetime "publishtime"
-    t.text     "description"
-    t.integer  "offerprice"
     t.integer  "user_id"
     t.integer  "business_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "requests", :force => true do |t|
-    t.datetime "publishtime"
-    t.text     "description"
-    t.integer  "askprice"
-    t.integer  "user_id"
-    t.integer  "business_id"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20090924041442) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password"
+    t.string   "role"
+    t.integer  "contact_record_id"
   end
 
 end

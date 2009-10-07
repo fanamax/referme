@@ -16,9 +16,12 @@
     <%= f.text_field :password %>
   </p>
   <p>
+    <%= f.label :role %><br />
+    <%= f.select(:role, %w{ Admin Referer }) %>
+  </p>  
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
