@@ -41671,3 +41671,238 @@ Rendering home/category
   [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 6)) [0m
 Rendered shared/_business_list (38.0ms)
 Completed in 57ms (View: 41, DB: 1) | 200 OK [http://localhost/home/category/phone]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-07 14:42:18) [GET]
+  [4;35;1mBusiness Load (1.0ms)[0m   [0mSELECT * FROM "businesses" WHERE (referee_reward > 10) LIMIT 4[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mBusiness Load (1.0ms)[0m   [0;1mSELECT * FROM "businesses" [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 2)) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 6)) [0m
+Rendered shared/_business_list (48.0ms)
+Completed in 72ms (View: 59, DB: 3) | 200 OK [http://localhost/home]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-07 14:43:22) [GET]
+  [4;35;1mBusiness Load (2.0ms)[0m   [0mSELECT * FROM "businesses" WHERE (referee_reward > 10) LIMIT 4[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mBusiness Load (1.0ms)[0m   [0;1mSELECT * FROM "businesses" [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 2)) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 6)) [0m
+Rendered shared/_business_list (95.0ms)
+Completed in 119ms (View: 106, DB: 4) | 200 OK [http://localhost/home]
+
+
+Processing HomeController#record_contact (for 127.0.0.1 at 2009-10-07 14:43:38) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "contactrecord"=>{"name"=>"", "phone"=>"", "email"=>"", "business_id"=>"2", "user_id"=>"8"}, "commit"=>"refer me"}
+  [4;35;1mBusiness Load (1.0ms)[0m   [0mSELECT * FROM "businesses" WHERE ("businesses"."id" = 2) [0m
+Completed in 29ms (View: 2, DB: 1) | 200 OK [http://localhost/home/record_contact]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-07 14:45:26) [GET]
+  [4;36;1mBusiness Load (1.0ms)[0m   [0;1mSELECT * FROM "businesses" WHERE (referee_reward > 10) LIMIT 4[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mBusiness Load (1.0ms)[0m   [0mSELECT * FROM "businesses" [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 2)) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 6)) [0m
+Rendered shared/_business_list (48.0ms)
+Completed in 73ms (View: 57, DB: 4) | 200 OK [http://localhost/home]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-07 14:45:27) [GET]
+  [4;36;1mBusiness Load (43.0ms)[0m   [0;1mSELECT * FROM "businesses" WHERE (referee_reward > 10) LIMIT 4[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mBusiness Load (1.0ms)[0m   [0mSELECT * FROM "businesses" [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 2)) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 6)) [0m
+Rendered shared/_business_list (44.0ms)
+Completed in 104ms (View: 48, DB: 46) | 200 OK [http://localhost/home]
+
+
+Processing BusinessesController#index (for 127.0.0.1 at 2009-10-07 14:45:33) [GET]
+  [4;36;1mBusiness Load (2.0ms)[0m   [0;1mSELECT * FROM "businesses" [0m
+Rendering template within layouts/businesses
+Rendering businesses/index
+Completed in 107ms (View: 94, DB: 2) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#new (for 127.0.0.1 at 2009-10-07 14:45:37) [GET]
+Rendering businesses/new
+Completed in 26ms (View: 13, DB: 0) | 200 OK [http://localhost/businesses/new]
+
+
+Processing BusinessesController#new (for 127.0.0.1 at 2009-10-07 14:47:04) [GET]
+Rendering businesses/new
+Completed in 26ms (View: 13, DB: 0) | 200 OK [http://localhost/businesses/new]
+
+
+Processing BusinessesController#create (for 127.0.0.1 at 2009-10-07 14:47:09) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "business"=>{"name"=>"", "referal_program_name"=>"", "address"=>"", "description"=>"", "city"=>"", "state"=>"", "url"=>"", "referee_reward"=>"", "referer_reward"=>"", "start_date"=>"", "expiry_date"=>"", "upper_limit"=>"", "referee_constraint"=>""}, "commit"=>"Create"}
+Rendering template within layouts/businesses
+Rendering businesses/new
+Completed in 88ms (View: 25, DB: 0) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#create (for 127.0.0.1 at 2009-10-07 14:47:24) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "business"=>{"name"=>"aaa", "referal_program_name"=>"aaa", "address"=>"", "description"=>"aaa", "city"=>"", "state"=>"", "url"=>"", "referee_reward"=>"333", "referer_reward"=>"", "start_date"=>"", "expiry_date"=>"", "upper_limit"=>"", "referee_constraint"=>""}, "commit"=>"Create"}
+Rendering template within layouts/businesses
+Rendering businesses/new
+Completed in 56ms (View: 15, DB: 0) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#create (for 127.0.0.1 at 2009-10-07 14:48:14) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "business"=>{"name"=>"aaa", "referal_program_name"=>"aaa", "address"=>"", "description"=>"aaa", "city"=>"", "state"=>"", "url"=>"", "referee_reward"=>"333", "referer_reward"=>"", "start_date"=>"", "expiry_date"=>"", "upper_limit"=>"", "referee_constraint"=>""}, "commit"=>"Create"}
+Rendering template within layouts/businesses
+Rendering businesses/new
+Completed in 50ms (View: 21, DB: 0) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#create (for 127.0.0.1 at 2009-10-07 14:48:24) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "business"=>{"name"=>"aaa", "referal_program_name"=>"aaa", "category"=>"dsfg", "address"=>"", "description"=>"aaa", "city"=>"", "state"=>"", "url"=>"", "referee_reward"=>"333", "referer_reward"=>"", "start_date"=>"", "expiry_date"=>"", "upper_limit"=>"", "referee_constraint"=>""}, "commit"=>"Create"}
+  [4;35;1mBusiness Create (2.0ms)[0m   [0mINSERT INTO "businesses" ("name", "address", "city", "state", "country", "rating", "review", "category", "description", "zipcode", "yelpid", "created_at", "updated_at", "picture", "url", "referer_reward", "referee_reward", "expiry_date", "referal_program_name", "start_date", "upper_limit", "referee_constraint") VALUES('aaa', '', '', '', NULL, NULL, NULL, 'dsfg', 'aaa', NULL, NULL, '2009-10-07 21:48:24', '2009-10-07 21:48:24', NULL, '', NULL, 333, NULL, 'aaa', NULL, NULL, '')[0m
+Rendering template within layouts/businesses
+Rendering businesses/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #20 of app/views/businesses/index.html.erb:
+17:     <th>Referee Constraint</th>
+18:   </tr>
+19: 
+20: <% @businesses.each do |business| %>
+21:   <tr>
+22:     <td><%=h business.name %></td>
+23:     <td><%=h business.referal_program_name %></td>
+
+    app/views/businesses/index.html.erb:20
+    app/controllers/businesses_controller.rb:51:in `block (2 levels) in create'
+    app/controllers/businesses_controller.rb:49:in `create'
+    <internal:prelude>:8:in `synchronize'
+    c:/ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    c:/ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    c:/ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (100.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-07 14:48:50) [GET]
+  [4;36;1mBusiness Load (2.0ms)[0m   [0;1mSELECT * FROM "businesses" WHERE (referee_reward > 10) LIMIT 4[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mBusiness Load (2.0ms)[0m   [0mSELECT * FROM "businesses" [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 2)) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 6)) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 8)) [0m
+Rendered shared/_business_list (48.0ms)
+Completed in 79ms (View: 56, DB: 5) | 200 OK [http://localhost/]
+
+
+Processing BusinessesController#index (for 127.0.0.1 at 2009-10-07 14:49:11) [GET]
+  [4;35;1mBusiness Load (1.0ms)[0m   [0mSELECT * FROM "businesses" [0m
+Rendering template within layouts/businesses
+Rendering businesses/index
+Completed in 34ms (View: 16, DB: 1) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#destroy (for 127.0.0.1 at 2009-10-07 14:50:03) [DELETE]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "id"=>"8"}
+  [4;36;1mBusiness Load (20.0ms)[0m   [0;1mSELECT * FROM "businesses" WHERE ("businesses"."id" = 8) [0m
+  [4;35;1mBusiness Destroy (2.0ms)[0m   [0mDELETE FROM "businesses" WHERE "id" = 8[0m
+Redirected to http://localhost:3000/businesses
+Completed in 43ms (DB: 22) | 302 Found [http://localhost/businesses/8]
+
+
+Processing BusinessesController#index (for 127.0.0.1 at 2009-10-07 14:50:04) [GET]
+  [4;36;1mBusiness Load (26.0ms)[0m   [0;1mSELECT * FROM "businesses" [0m
+Rendering template within layouts/businesses
+Rendering businesses/index
+Completed in 64ms (View: 27, DB: 26) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#new (for 127.0.0.1 at 2009-10-07 14:50:09) [GET]
+Rendering businesses/new
+Completed in 144ms (View: 130, DB: 0) | 200 OK [http://localhost/businesses/new]
+
+
+Processing BusinessesController#create (for 127.0.0.1 at 2009-10-07 14:50:13) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "business"=>{"name"=>"", "referal_program_name"=>"", "category"=>"", "address"=>"", "description"=>"", "city"=>"", "state"=>"", "url"=>"", "referee_reward"=>"", "referer_reward"=>"", "start_date"=>"", "expiry_date"=>"", "upper_limit"=>"", "referee_constraint"=>""}, "commit"=>"Create"}
+Rendering template within layouts/businesses
+Rendering businesses/new
+Completed in 92ms (View: 14, DB: 0) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#create (for 127.0.0.1 at 2009-10-07 14:50:47) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "business"=>{"name"=>"", "referal_program_name"=>"", "category"=>"", "address"=>"", "description"=>"", "city"=>"", "state"=>"", "url"=>"", "referee_reward"=>"", "referer_reward"=>"", "start_date"=>"", "expiry_date"=>"", "upper_limit"=>"", "referee_constraint"=>""}, "commit"=>"Create"}
+Rendering template within layouts/businesses
+Rendering businesses/new
+Completed in 98ms (View: 21, DB: 0) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#create (for 127.0.0.1 at 2009-10-07 14:50:58) [POST]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "business"=>{"name"=>"name", "referal_program_name"=>"referal program name", "category"=>"category", "address"=>"", "description"=>"description", "city"=>"", "state"=>"", "url"=>"", "referee_reward"=>"111", "referer_reward"=>"", "start_date"=>"", "expiry_date"=>"", "upper_limit"=>"", "referee_constraint"=>""}, "commit"=>"Create"}
+  [4;35;1mBusiness Create (2.0ms)[0m   [0mINSERT INTO "businesses" ("name", "address", "city", "state", "country", "rating", "review", "category", "description", "zipcode", "yelpid", "created_at", "updated_at", "picture", "url", "referer_reward", "referee_reward", "expiry_date", "referal_program_name", "start_date", "upper_limit", "referee_constraint") VALUES('name', '', '', '', NULL, NULL, NULL, 'category', 'description', NULL, NULL, '2009-10-07 21:50:58', '2009-10-07 21:50:58', NULL, '', NULL, 111, NULL, 'referal program name', NULL, NULL, '')[0m
+Rendering template within layouts/businesses
+Rendering businesses/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #20 of app/views/businesses/index.html.erb:
+17:     <th>Referee Constraint</th>
+18:   </tr>
+19: 
+20: <% @businesses.each do |business| %>
+21:   <tr>
+22:     <td><%=h business.name %></td>
+23:     <td><%=h business.referal_program_name %></td>
+
+    app/views/businesses/index.html.erb:20
+    app/controllers/businesses_controller.rb:51:in `block (2 levels) in create'
+    app/controllers/businesses_controller.rb:49:in `create'
+    <internal:prelude>:8:in `synchronize'
+    c:/ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    c:/ruby19/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    c:/ruby19/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (98.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-10-07 14:51:10) [GET]
+  [4;36;1mBusiness Load (2.0ms)[0m   [0;1mSELECT * FROM "businesses" WHERE (referee_reward > 10) LIMIT 4[0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mBusiness Load (1.0ms)[0m   [0mSELECT * FROM "businesses" [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 2)) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 6)) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "referals" ON "users".id = "referals".user_id WHERE (("referals".business_id = 9)) [0m
+Rendered shared/_business_list (100.0ms)
+Completed in 130ms (View: 116, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing BusinessesController#index (for 127.0.0.1 at 2009-10-07 14:51:39) [GET]
+  [4;35;1mBusiness Load (2.0ms)[0m   [0mSELECT * FROM "businesses" [0m
+Rendering template within layouts/businesses
+Rendering businesses/index
+Completed in 31ms (View: 18, DB: 2) | 200 OK [http://localhost/businesses]
+
+
+Processing BusinessesController#destroy (for 127.0.0.1 at 2009-10-07 14:51:44) [DELETE]
+  Parameters: {"authenticity_token"=>"XxncT917UcRJawnOKDkVoZS4DMQR54x5b0AS93GmaH0=", "id"=>"9"}
+  [4;36;1mBusiness Load (0.0ms)[0m   [0;1mSELECT * FROM "businesses" WHERE ("businesses"."id" = 9) [0m
+  [4;35;1mBusiness Destroy (2.0ms)[0m   [0mDELETE FROM "businesses" WHERE "id" = 9[0m
+Redirected to http://localhost:3000/businesses
+Completed in 24ms (DB: 2) | 302 Found [http://localhost/businesses/9]
+
+
+Processing BusinessesController#index (for 127.0.0.1 at 2009-10-07 14:51:44) [GET]
+  [4;36;1mBusiness Load (2.0ms)[0m   [0;1mSELECT * FROM "businesses" [0m
+Rendering template within layouts/businesses
+Rendering businesses/index
+Completed in 30ms (View: 16, DB: 2) | 200 OK [http://localhost/businesses]
