@@ -8,7 +8,7 @@ class LoginController < ApplicationController
   def process_login
     if (userid = User.authenticate(params[:username], params[:password])) != -1
       user = User.find(userid)
-      if user.role == "Admin"
+      if user.role == "admin"
         session[:id] = userid
         user = User.find(userid)
         redirect_to :action => "admin"
