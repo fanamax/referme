@@ -7,11 +7,5 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # filter_parameter_logging :password
-  def require_login
-    unless session[:id]
-      flash[:notice] = "please log in"
-      redirect_to :controller => "login", :action => "login"
-    end
-  end
 
 end

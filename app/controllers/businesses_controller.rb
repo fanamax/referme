@@ -1,5 +1,4 @@
 class BusinessesController < ApplicationController
-  before_filter :require_login
   # GET /businesses
   # GET /businesses.xml
   def index
@@ -31,7 +30,7 @@ class BusinessesController < ApplicationController
     @business = Business.new
 
     respond_to do |format|
-      format.html  {render :controller => "businesses/create/", :layout => false}
+      format.html  {render :controller => "businesses/create/", :layout => "layouts/application"}
       format.xml  { render :xml => @business }
     end
   end
@@ -48,10 +47,10 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-        format.html { render :action => "index" }
+        format.html { render :text => "We will verify the business. If it exists, it will show up in our service shortly", :layout => 'application' }
         format.xml  { render :xml => @business, :status => :created, :location => @business }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :layout => "layouts/application" }
         format.xml  { render :xml => @business.errors, :status => :unprocessable_entity }
       end
     end
@@ -80,8 +79,15 @@ class BusinessesController < ApplicationController
     @business.destroy
 
     respond_to do |format|
-      format.html { redirect_to(businesses_url) }
+      format.html { redirect_to :back }
       format.xml  { head :ok }
     end
+  end
+  
+  def approve
+    business = Business.find(params[:id])
+    business.approved = "yes"
+    business.save
+    redirect_to :back
   end
 end

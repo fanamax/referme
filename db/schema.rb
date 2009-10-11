@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091009045943) do
+ActiveRecord::Schema.define(:version => 20091011021448) do
 
 # Could not dump table "businesses" because of following StandardError
 #   Unknown type 'reference' for column 'picture'

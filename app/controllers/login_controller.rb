@@ -1,5 +1,12 @@
 class LoginController < ApplicationController
 
+  def require_login
+    unless session[:id]
+      flash[:notice] = "please log in"
+      redirect_to :controller => "login", :action => "login"
+    end
+  end
+
   def logout
     reset_session
     redirect_to :controller => 'login', :action => 'login'
@@ -21,13 +28,10 @@ class LoginController < ApplicationController
       redirect_to :action => "login"      
     end
   end
-    
-  def login
-    render :layout => false
-  end
   
   def admin
-    render :layout => false
   end
   
+  def login
+  end
 end
