@@ -1,4 +1,5 @@
 class BusinessesController < ApplicationController
+  layout "application"
   # GET /businesses
   # GET /businesses.xml
   def index
@@ -89,5 +90,17 @@ class BusinessesController < ApplicationController
     business.approved = "yes"
     business.save
     redirect_to :back
+  end
+  
+  def search
+    @businesses = Business.search(params[:businessname])
+  end
+  
+  def hot_list
+    @hotbusinesses = Business.find(:all, :limit => 4, :conditions => ["referee_reward > ?", 10])
+  end
+
+  def category
+    @businesses = Business.find_all_by_category(params[:id])
   end
 end
