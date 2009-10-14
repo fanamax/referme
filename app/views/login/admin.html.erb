@@ -1,0 +1,22 @@
+<p>Businesses need your approval</p>
+
+<table>
+  <tr>
+    <td>
+      <div>
+      <% businesses = Business.find(:all, :conditions => ['approved is ?', nil]) %>
+      <%= render :partial => 'shared/edit_business_list', :locals => {:show_approve_link => true,
+                                                                      :business_list => businesses} %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <div>
+      <%= link_to 'business list', :controller => 'businesses', :action => 'index' %>
+      <%= link_to 'user list', :controller => 'users', :action => 'index' %>
+      <%= link_to 'logout', :action => 'logout' %>
+      </div>
+    </td>
+  </tr>
+</table>
