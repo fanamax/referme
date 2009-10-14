@@ -1,32 +1,32 @@
-<div id="referallist">
-  <h3>Your referal list</h3>
+<div id="referrallist">
+  <h3>Your referral list</h3>
   <table border="1px" >
     <tr>
       <th>Business Name</th>
-      <th>Referal Program Name</th>
-      <th>Referer Reward</th>
+      <th>Referral Program Name</th>
+      <th>Referrer Reward</th>
       <th>Expiry Date</th>
     </tr>
     <% @user.businesses.each do |business| %>
     <tr>
       <td><%=h business.name %></td>
-      <td><%= h business.referal_program_name%></td>
-      <td>$<%= h business.referer_reward%></td>
+      <td><%= h business.referral_program_name%></td>
+      <td>$<%= h business.referrer_reward%></td>
       <td><%= h business.expiry_date%></td>
-      <% referal_id = Referal.find_by_business_id_and_user_id(business.id, @user.id) %>
-      <td><%= link_to 'remove', :controller => 'referals', :action => 'remove', :id => referal_id %></td>
+      <% referral_id = Referral.find_by_business_id_and_user_id(business.id, @user.id) %>
+      <td><%= link_to 'remove', :controller => 'referrals', :action => 'remove', :id => referral_id %></td>
     </tr>
     <% end %>
   </table>
   <br/>
 </div>
 
-<div id="referalform">
-<% form_for :referal, :url => { :controller => :referals, :action => :create } do |form| %>
-  <% eligible_referals = @businesses - @user.businesses %>
-  <% unless eligible_referals.length == 0 %>
+<div id="referralform">
+<% form_for :referral, :url => { :controller => :referrals, :action => :create } do |form| %>
+  <% eligible_referrals = @businesses - @user.businesses %>
+  <% unless eligible_referrals.length == 0 %>
     Business Name:
-    <%= form.collection_select(:business_id, @businesses - @user.businesses, :id, :referal_program_name) %>
+    <%= form.collection_select(:business_id, @businesses - @user.businesses, :id, :referral_program_name) %>
     <%= form.hidden_field :user_id, :value => @user.id %>
     <%= submit_tag "Add" %>
   <% end %>

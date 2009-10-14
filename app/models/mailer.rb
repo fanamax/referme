@@ -1,6 +1,6 @@
 class Mailer < ActionMailer::Base
   def mail(contactrecord)
-    subject	'Someone needs your referal'
+    subject	'Someone needs your referral'
     if contactrecord.user
       recipients contactrecord.user.email
     else

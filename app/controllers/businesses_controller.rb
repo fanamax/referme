@@ -86,9 +86,9 @@ class BusinessesController < ApplicationController
   end
   
   def approve
-    business = Business.find(params[:id])
-    business.approved = "yes"
-    business.save
+    @business = Business.find(params[:id])
+    @business.approved = "yes"
+    @business.save
     redirect_to :back
   end
   

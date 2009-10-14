@@ -3,7 +3,7 @@ class Business < ActiveRecord::Base
 	validates_presence_of :description
 	has_many :contactrecords
 	has_many :referrals
-	has_many :users, :through => :referals
+	has_many :users, :through => :referrals
 
 	def self.search(businessname)
 		search_condition = "%" + businessname + "%"

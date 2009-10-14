@@ -3,13 +3,13 @@
   <% business_list.each do |business| %>
   <tr>
   <td style="width:100%">
-    <div id="referalinfo">
+    <div id="referralinfo">
       <b><%= business.name %></b></br>
       <span>Category: <a href="/businesses/category/<%=business.category%>"><%= business.category %></a></span><br/>
       <% if business.url == "" %>
-        <span><%= business.referal_program_name %></span>
+        <span><%= business.referral_program_name %></span>
       <% else %>
-        <span><a href="<%= business.url %>" target="_blank"><%= business.referal_program_name %></a></span>
+        <span><a href="<%= business.url %>" target="_blank"><%= business.referral_program_name %></a></span>
       <% end %>
       <span style="margin-left:15px">Reward:<%= business.referee_reward %></span>
       <% if business.expiry_date %>

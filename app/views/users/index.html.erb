@@ -14,7 +14,7 @@
     <td><%=h user.email %></td>
     <td><%=h user.password %></td>
     <td><%=h user.role %></td>
-    <td><%= link_to 'Referals', :action => 'profile', :id => user.id %></td>
+    <td><%= link_to 'Referrals', :action => 'profile', :id => user.id %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

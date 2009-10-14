@@ -1,9 +1,0 @@
-<div id="loginpanel" style="width:200px;margin:auto;padding:10px">
-Login required
-<% form_tag('/login/process_login') do -%>
-  username  <%= text_field_tag 'username'%><br/>
-  password  <%= password_field_tag 'password'%><br/><br/>
-  <%= submit_tag 'login' %>
-  <span style="color:red"><%= flash[:error] %></span>
-<% end -%>
-</div>
