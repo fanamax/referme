@@ -16,6 +16,15 @@
 </head>
 
 <body>
+    <div id="user_nav">
+      <% if current_user %>
+        <%= current_user.username%>
+        <%= link_to "Logout", logout_path %>
+      <% else %>
+      <%= link_to "Signup", signup_path %>
+        <%= link_to "Login", login_path %>
+      <% end %>
+    </div>
   <table class="main_table">
     <tr>
       <td class="logo"><%= link_to image_tag("logo.jpg", :border=>0), :controller => 'home', :action => 'index' %><br />

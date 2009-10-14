@@ -1,10 +1,8 @@
-span.search_text
-{
+span.search_text {
     font-size:14px
 }
 
-span.search_example
-{
+span.search_example {
     font-style:italic;
     color:grey;
     font-size:11px
