@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.login "login", :controller => "user_sessions", :action => "new"
+  map.logout "logout", :controller => "user_sessions", :action => "destroy"
+  map.resources :user_sessions
+
   map.resources :pictures
 
   map.resources :businesses
@@ -45,7 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.resources :users
 
-  map.resources :referals
+  map.resources :referrals
 
   map.resources :requests
 

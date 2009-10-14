@@ -3,7 +3,7 @@ class Business < ActiveRecord::Base
   validates_presence_of :address
   validates_presence_of :description
   has_many :requests
-  has_many :referals
+  has_many :referrals
 
   def self.search(businessname, city)
     search_condition = "%" + businessname + "%"

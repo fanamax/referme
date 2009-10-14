@@ -1,43 +1,31 @@
-<html>
-	<head>
-		<style type="text/css">
-		.center
-		{
-			margin:auto;
-			width:1000
-		}
-		</style>
-		<%= greybox_includes %>
-		 <script type="text/javascript">
-		function refresh() {
-			javascript:location.reload(true)
-		}
-		</script>
-	</head>
-	<body>
-		<table border="1" class="center">
-		<tr>
-			<td>
-				<% form_tag '/businesses/search' do %>
-				<label>Business Name (<span>e.g. The Onyx Apartment</span>)</label>
-				<%= text_field_tag :businessname, params[:businessname], :id => 'businessname_field' %>
-				<label>Location (<span>e.g. Redmond, WA</span>)</label>
-				<%= text_field_tag :location, params[:city], :id => 'city_field' %>
-				<%= submit_tag "Search" %>
-				<%= loginlabel %>
-				<%= link_to "home", :controller => "home", :action => "index" %>				
-				<% end %>
-				for new user,<%= link_to "register", {:controller => :users, :action => :new}, :rel => 'gb_page_center[380,300]' %> </br>
-
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id = "content">
-				<%= yield %>
-			</div>
-			</td>
-		</tr>
-		</table>
-	</body>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+  <div id="container">
+    <div id="user_nav">
+      <% if current_user %>
+        <%= current_user.username%>
+        <%= link_to "Logout", logout_path %>
+      <% else %>
+        <%= link_to "Register", new_user_path %>
+        <%= link_to "Login", login_path %>
+      <% end %>
+    </div>
+    <div id="search">
+        <% form_tag '/businesses/search' do %>
+        <label>Business Name (<span>e.g. The Onyx Apartment</span>)</label>
+        <%= text_field_tag :businessname, params[:businessname], :id => 'businessname_field' %>
+        <label>Location (<span>e.g. Redmond, WA</span>)</label>
+        <%= text_field_tag :location, params[:city], :id => 'city_field' %>
+        <%= submit_tag "Search" %>
+        <% end %>
+    </div>
+    <div id = "content">
+      <%= yield %>
+    </div>
+  </div>
+</body>
 </html>

@@ -1,4 +1,4 @@
-class Referal < ActiveRecord::Base
+class Referral < ActiveRecord::Base
   belongs_to :user
   belongs_to :business
   validates_presence_of :offerprice

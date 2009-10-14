@@ -22,7 +22,7 @@ class BusinessesController < ApplicationController
   def show
     @business = Business.find(params[:id])
     
-    # remember business id, later needed to create referal and request
+    # remember business id, later needed to create referral and request
     session[:businessid] = @business.id
     
     respond_to do |format|
