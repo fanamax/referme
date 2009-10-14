@@ -1,0 +1,92 @@
+span.search_text
+{
+    font-size:14px
+}
+
+span.search_example
+{
+    font-style:italic;
+    color:grey;
+    font-size:11px
+}
+
+div, span, tr, b
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+div.biz_desc
+{
+  float:left;
+  color:#544E4F;
+  margin-top:10px
+}
+
+div.after_contact
+{
+    border:none;
+    color:orange
+}
+
+span.contact_error
+{
+  color:red
+}
+
+div.contact
+{
+  border:1px solid;
+  width:60%;
+  color:navy;
+  border-color:lightblue;
+  display:none
+}
+
+tr
+{
+  text-align:left
+}
+
+hr
+{
+  border-width:1px;
+  color:grey
+}
+
+.search
+{
+  font-size:14px
+}
+
+.attribute
+{
+  float:left;margin-right:15px;
+  font-size:12px
+}
+
+input.flat,button.flat
+{
+  border:1px solid;
+  border-color:grey
+}
+
+input.flat:focus {border-color:black}
+
+table.main_table
+{
+    width:800px;
+    margin:auto
+}
+
+td
+{
+    vertical-align:top;
+    text-align:left
+}
+
+td.logo
+{
+    text-align:center
+}

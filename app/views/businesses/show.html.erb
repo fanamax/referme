@@ -1,37 +1,59 @@
-<table>
-  <tr>
-  <td>
-    <%= @business.name %> <br/>
-    <%= @business.address %> <br/>
-    <%= @business.url %> <br/>
-    <%= @business.description %> <br/>
-    <hr/>
-  </td>
-  </tr>
-  <tr>
-  <td>
-    <table>
-    <tr>
-    <td valign="top">
-      <table>
-      <tr>
-      <td>
-        <%= "#{@business.referrals.count} Referrals" %>
-      </td>
-      <td>
-        <%= link_to "new referral", {:controller => :referrals, :action => :new, :id => @business.id}, :rel => 'gb_page_center[640,480]' %></td>
-      </td>
-      </tr>
-    <td>
-      <% @business.referrals.each do |referral| %> </br>
-      <%= "offer: $#{referral.offerprice}"%> </br>
-      <%= referral.description %> </br>
-      <%= referral.user.username %> </br>
-      <%= link_to "contact", {:controller => :businesses, :action => :referralform, :id => referral.id}, :rel => 'gb_page_center[640,480]' %> </br>
-      <% end %>
-    </td>
-    </tr>
-    </table>
-  </td>
-  </tr>
-</table>
+<p>
+  <b>Name:</b>
+  <%=h @business.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @business.address %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @business.description %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @business.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @business.state %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @business.url %>
+</p>
+
+<p>
+  <b>Referee reward:</b>
+  <%=h @business.referee_reward %>
+</p>
+
+<p>
+  <b>Referer reward:</b>
+  <%=h @business.referer_reward %>
+</p>
+<p>
+  <b>Start date:</b>
+  <%=h @business.start_date %>
+</p>
+<p>
+  <b>Expiry date:</b>
+  <%=h @business.expiry_date %>
+</p>
+<p>
+  <b>Upper limit:</b>
+  <%=h @business.upper_limit %>
+</p>
+<p>
+  <b>Referee constraint:</b>
+  <%=h @business.referee_constraint %>
+</p>
+
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

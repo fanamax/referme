@@ -1,4 +1,5 @@
 class BusinessesController < ApplicationController
+  layout "application"
   # GET /businesses
   # GET /businesses.xml
   def index
@@ -8,13 +9,6 @@ class BusinessesController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @businesses }
     end
-  end
-  
-  # POST /businesses/search
-  # Params: businessname --- name of business
-  #         city --- name of city
-  def search
-    @businesses = Business.search(params[:businessname], params[:city])
   end
 
   # GET /businesses/1
@@ -37,7 +31,7 @@ class BusinessesController < ApplicationController
     @business = Business.new
 
     respond_to do |format|
-      format.html  {render :controller => "businesses/create/", :layout => false}
+      format.html  {render :controller => "businesses/create/", :layout => "layouts/application"}
       format.xml  { render :xml => @business }
     end
   end
@@ -54,10 +48,10 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-        format.html { render :partial => 'layouts/refreshparent' }
+        format.html { render :text => "We will verify the business. If it exists, it will show up in our service shortly", :layout => 'application' }
         format.xml  { render :xml => @business, :status => :created, :location => @business }
       else
-        format.html { render :action => "new", :layout => false }
+        format.html { render :action => "new", :layout => "layouts/application" }
         format.xml  { render :xml => @business.errors, :status => :unprocessable_entity }
       end
     end
@@ -86,8 +80,27 @@ class BusinessesController < ApplicationController
     @business.destroy
 
     respond_to do |format|
-      format.html { redirect_to(businesses_url) }
+      format.html { redirect_to :back }
       format.xml  { head :ok }
     end
+  end
+  
+  def approve
+    business = Business.find(params[:id])
+    business.approved = "yes"
+    business.save
+    redirect_to :back
+  end
+  
+  def search
+    @businesses = Business.search(params[:businessname])
+  end
+  
+  def hot_list
+    @hotbusinesses = Business.find(:all, :limit => 4, :conditions => ["referee_reward > ?", 10])
+  end
+
+  def category
+    @businesses = Business.find_all_by_category(params[:id])
   end
 end

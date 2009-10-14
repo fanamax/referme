@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091005145544) do
+ActiveRecord::Schema.define(:version => 20091002054735) do
 
   create_table "businesses", :force => true do |t|
     t.string   "name"
@@ -17,59 +17,52 @@ ActiveRecord::Schema.define(:version => 20091005145544) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
-    t.binary   "picture"
-    t.integer  "rating"
-    t.text     "review"
-    t.string   "category"
-    t.text     "description"
     t.string   "zipcode"
-    t.string   "yelpid"
+    t.string   "url"
+    t.string   "category"
+    t.string   "approved"
+    t.date     "start_date"
+    t.date     "expiry_date"
+    t.integer  "upper_limit"
+    t.string   "referee_constraint"
+    t.string   "referral_program_name"
+    t.text     "description"
+    t.string   "referrer_reward"
+    t.string   "referee_reward"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "url"
   end
 
-  create_table "pictures", :force => true do |t|
-    t.string   "filename"
-    t.string   "filetype"
-    t.binary   "content"
+  create_table "contact_records", :force => true do |t|
+    t.integer  "business_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "referrals", :force => true do |t|
-    t.datetime "publishtime"
-    t.text     "description"
-    t.integer  "offerprice"
     t.integer  "user_id"
     t.integer  "business_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "requests", :force => true do |t|
-    t.datetime "publishtime"
-    t.text     "description"
-    t.integer  "askprice"
-    t.integer  "user_id"
-    t.integer  "business_id"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "displayname"
-    t.string   "email"
-    t.integer  "ratingcount"
-    t.integer  "averagerating"
-    t.binary   "picture"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password"
     t.string   "username"
+    t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
+    t.string   "role"
+    t.integer  "ratingcount"
+    t.integer  "averagerating"
+    t.integer  "contact_record_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,24 +1,9 @@
-<% form_tag :controller => :login, :action => :processlogin do %>
-<table>
-<tr>
-<td>
-<label>user name</label>
-<%= text_field_tag :username, params[:username], :id => 'username_field', :size => 30 %>
-</td>
-</tr>
-<tr>
-<td>
-<label>password</label>
-<%= password_field_tag :password, params[:password], :id => 'password_field', :size => 30 %>
-</td>
-</tr>
-<tr>
-<td>
-<%= submit_tag "login" %>
-</td>
-</tr>
-</table>
-<% end %>
-<% if flash[:error] %>
-<div><%= flash[:error] %></div>
-<% end %>
+<div id="loginpanel" style="width:200px;margin:auto;padding:10px">
+Login required
+<% form_tag('/login/process_login') do -%>
+  username  <%= text_field_tag 'username'%><br/>
+  password  <%= password_field_tag 'password'%><br/><br/>
+  <%= submit_tag 'login' %>
+  <span style="color:red"><%= flash[:error] %></span>
+<% end -%>
+</div>

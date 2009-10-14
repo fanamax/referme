@@ -1,0 +1,100 @@
+<% business_list.each do |business| %>
+<div>
+  <table width="600px">
+    <tr>
+      <td width="20%">
+        Name:
+      </td>
+      <td>
+        <%=h business.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Referal Program Name:
+      </td>
+      <td>
+        <%=h business.referal_program_name %></td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Description:
+      </td>
+      <td>
+        <%=h business.description %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        City:
+      </td>
+      <td>
+        <%=h business.city %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        State:
+      </td>
+      <td>
+        <%=h business.state %>
+      </td>
+    </tr>
+    </tr>
+    <tr>
+      <td>
+        Url:
+      </td>
+      <td>
+        <%=h business.url %>
+      </td>
+    </tr>      
+    <tr>
+      <td>
+        Referee Reward:
+      </td>
+      <td>
+        <%=h business.referee_reward %>
+      </td>
+    </tr>      
+    <tr>
+      <td>
+        Referer Reward:
+      </td>
+      <td>
+        <%=h business.referer_reward %>
+      </td>
+    </tr>      
+    <tr>
+      <td>
+        Start Date:
+      </td>
+      <td>
+        <%=h business.start_date %>
+      </td>
+    </tr>      
+    <tr>
+      <td>
+        Expiry Date:
+      </td>
+      <td>
+        <%=h business.expiry_date %>
+      </td>
+    </tr>      
+    <tr>
+      <td colspan=2>
+      <% if show_approve_link %>
+        <%= link_to 'Approve', :controller => 'businesses', :action => 'approve', :id => business.id %>
+      <% end %>
+      <%= link_to 'Edit', edit_business_path(business) %>
+      <%= link_to 'Destroy', business, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+    <tr>
+    <td colspan=2>
+    <hr/>
+    </td>
+    </tr>
+</div>
+<% end %>

@@ -1,25 +1,7 @@
 <h1>Listing businesses</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Description</th>
-  </tr>
-
-<% @businesses.each do |business| %>
-  <tr>
-    <td><%=h business.name %></td>
-    <td><%=h business.address %></td>
-    <td><%=h business.url %></td>
-    <td><%=h business.description %></td>
-    <td><%= link_to 'Show', business %></td>
-    <td><%= link_to 'Edit', edit_business_path(business) %></td>
-    <td><%= link_to 'Destroy', business, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<% businesses = Business.find(:all, :conditions => ['approved = ?', "yes"]) %>
+<%= render :partial => 'shared/edit_business_list', :locals => {:show_approve_link => false,
+                                                                :business_list => businesses} %>
 <br />
-
 <%= link_to 'New business', new_business_path %>

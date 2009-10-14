@@ -1,0 +1,76 @@
+<table>
+<% if business_list.count > 0 %>
+  <% business_list.each do |business| %>
+  <tr>
+  <td style="width:100%">
+    <div id="referalinfo">
+      <b><%= business.name %></b></br>
+      <span>Category: <a href="/businesses/category/<%=business.category%>"><%= business.category %></a></span><br/>
+      <% if business.url == "" %>
+        <span><%= business.referal_program_name %></span>
+      <% else %>
+        <span><a href="<%= business.url %>" target="_blank"><%= business.referal_program_name %></a></span>
+      <% end %>
+      <span style="margin-left:15px">Reward:<%= business.referee_reward %></span>
+      <% if business.expiry_date %>
+        <span style="margin-left:15px">Expire: in <%= time_ago_in_words(business.expiry_date) %></span>
+      <% end %>
+      <div class="biz_desc" ><%= business.description %><br/><br/>
+      </div><br/>
+    </div>
+  </td>
+  <td>
+    <div id="contactform<%= business.id %>">
+      <div class="contact">
+        <% form_remote_for :contactrecord,
+                           :url => {:controller => :contact_records, :action => :record_contact} do |form| %>
+          <table>
+            <tr>
+              <td colspan=2>
+                <b>Please leave your contact info</b><br/>
+              </td>
+            </tr>
+            <tr>
+              <td>name: </td>
+              <td><%= form.text_field :name, :size => 20, :class => 'flat' %></td>
+            </tr>
+            <tr>
+              <td>phone: </td>
+              <td><%= form.text_field :phone, :size => 20, :onkeypress => "return onlyNumbers(event)", :class => 'flat' %></td>
+            </tr>
+            <tr>
+              <td>email: </td>
+              <td>
+                <%= form.text_field :email, :size => 20, :class => 'flat' %>
+                        <%= form.hidden_field :business_id, :value => business.id%>
+                <!--If there is referer, pick a referer randomly to notify-->
+                <% if business.users.length > 0 %>
+                <%= form.hidden_field :user_id, :value => business.users[rand(business.users.length)].id %>
+                <% else %>
+                <%= form.hidden_field :user_id, :value => nil %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td colspan=2>
+                <%= submit_tag "refer me", :class => 'flat'%>
+                <span id="error<%= business.id %>" class="contact_error"></span>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>    
+    </div>
+  </td>
+  </tr>
+  <% end %>
+<% else %>
+  <tr>
+    <td>
+      No business is found
+    </td>
+  </tr>
+<% end %>
+</table>
+<hr/>
+<%= link_to 'add business', :controller => 'businesses', :action => 'new' %>

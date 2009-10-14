@@ -8,6 +8,10 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label :referal_program_name %><br />
+    <%= f.text_field :referal_program_name %>
+  </p>
+  <p>
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </p>
@@ -17,8 +21,48 @@
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+    <p>
+    <%= f.label :referee_reward %><br />
+    <%= f.text_field :referee_reward %>
+  </p>
+  <p>
+    <%= f.label :referer_reward %><br />
+    <%= f.text_field :referer_reward %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= calendar_date_select :business, :start_date %>
+  </p>
+  <p>
+    <%= f.label :expiry_date %><br />
+    <%= calendar_date_select :business, :expiry_date %>
+  </p>
+  <p>
+    <%= f.label :upper_limit %><br />
+    <%= f.text_field :upper_limit %>
+  </p>
+  <p>
+    <%= f.label :referee_constraint %><br />
+    <%= f.text_field :referee_constraint %>
+  </p>  
   <p>
     <%= f.submit 'Update' %>
   </p>
