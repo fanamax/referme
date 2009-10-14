@@ -18,6 +18,8 @@
   <p>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
     <%= f.label :role %><br />
     <%= f.select(:role, %w{Admin Referer}) %>
   </p>

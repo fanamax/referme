@@ -1,42 +1,51 @@
-<html>
-	<head>
-	        <%= javascript_include_tag 'prototype' %>
-		<%= calendar_date_select_includes "red" %>		
-	        <%= javascript_include_tag 'referme' %>
-		<%= stylesheet_link_tag 'referme' %>
-	</head>
-	<body>
-		<table class="main_table">
-		<tr>
-			<td class="logo">
-				<%= link_to image_tag("logo.jpg", :border=>0), :controller => 'home', :action => 'index' %>
-				<br/>
-				<br/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<div id="searhpanel">
-				<% form_tag '/businesses/search' do %>
-				<span class="search_text">Refer me at <span class="search_example">(e.g. Bank of America)</span></span>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <%= javascript_include_tag 'prototype' %>
+  <%= calendar_date_select_includes "red" %>
+  <%= javascript_include_tag 'referme' %>
+  <%= stylesheet_link_tag 'referme' %>
+  <title></title>
+  <style type="text/css">
+/*<![CDATA[*/
+  div.c1 {margin:0;padding:0;display:inline}
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <table class="main_table">
+    <tr>
+      <td class="logo"><%= link_to image_tag("logo.jpg", :border=>0), :controller => 'home', :action => 'index' %><br />
+      <br /></td>
+    </tr>
+
+    <tr>
+      <td>
+        <div id="searchpanel">
+          <% form_tag '/businesses/search' do %>
+          <span class="search_text">Refer me at <span class="search_example">(e.g. Bank of America)</span></span>
 				<%= text_field_tag :businessname,
 						   params[:businessname],
 						   :id => 'businessname_field',
 						   :onfocus => "search_box_onfocus()",
 						   :onblur => 'search_box_losefocus()' %>
 				<%= submit_tag "Search" %>
+				<% end %>
 				<hr/>
 				</div>
-				<% end %>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div id = "content">
-				<%= yield %>
-			</div>
-			</td>
-		</tr>
-		</table>
-	</body>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div id="content">
+          <%= yield %>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
 </html>
